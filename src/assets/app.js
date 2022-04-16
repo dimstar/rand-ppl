@@ -88,8 +88,8 @@ const handleButtonClick = async (event) => {
   button.removeAttribute('aria-disabled');
   button.classList.remove('disabled');
 
-  if(users.length > 0) {
-    const selectionNote = document.querySelector('[data-clear-on-results]');
+  const selectionNote = document.querySelector('[data-clear-on-results]');
+  if(users.length > 0 && selectionNote) {
     selectionNote.remove();
   }
 
