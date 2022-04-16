@@ -1,6 +1,6 @@
 :root {
   --font-family: sans-serif;
-  --accent-color: hotpink;
+  --accent-color: #fff01f;
   --font-color: white;
   --border-radius: 8px;
   --padding: 16px 24px;
@@ -8,7 +8,11 @@
 }
 
 html {
-  font-size: 8px;
+  font-size: 10px;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -16,6 +20,22 @@ body {
   color: var(--font-color);
   font-family: var(--font-family);
   padding: var(--padding);
+  font-size: 1.6rem;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .h1,
@@ -34,15 +54,22 @@ body {
 }
 
 .h1 {
-  font-size: 6rem;
-}
-
-.h2 {
   font-size: 4rem;
 }
 
 .h2 {
   font-size: 3rem;
+}
+
+.h2 {
+  font-size: 2rem;
+}
+
+.buttons {
+  text-align: center;
+  padding: var(--padding);
+  display: flex;
+  justify-content: center;
 }
 
 .btn {
@@ -53,10 +80,53 @@ body {
   color: black;
   text-transform: uppercase;
   font-size: 2rem;
+  display: inline-block;
+  margin: var(--padding);
+  min-width: 25vw;
 }
 
 .btn:hover {
   background-color: transparent;
   color: var(--accent-color);
   cursor: pointer;
+}
+
+.btn.disabled {
+  cursor: not-allowed;
+  background-color: grey;
+  border-color: grey;
+  color: black;
+}
+
+.users {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: var(--padding);
+}
+
+.users__user {
+  width: 100%;
+  padding-bottom: 4rem;
+  text-align: center;
+}
+
+@media (min-width: 641px) {
+  .users {
+    max-width: 840px;
+    margin: 0 auto;
+  }
+
+  .users__user {
+    width: 33.33%;
+    padding: var(--padding);
+  }
+}
+
+.user__image {
+  width: 100%;
+}
+
+.user__name {
+  margin: 1rem 0 1rem 0;
 }
