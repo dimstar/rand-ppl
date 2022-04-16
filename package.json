@@ -6,11 +6,9 @@
   "author": "dimstar <kylermagee@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon ./server.js"
+    "start": "node ./server.js"
   },
-  "dependencies": {
-    "nodemon": "^2.0.15"
-  },
+  "dependencies": {},
   "engines": {
     "node": "^16"
   }
