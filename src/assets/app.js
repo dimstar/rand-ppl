@@ -31,9 +31,9 @@ const templateUser = ({image, name, email}) => {
   // TODO: implement better text sanitization :|
   return `
   <li class="users__user">
-    <img src="${image.medium}" alt="" class="user__image">
+    <img src="${image.large}" alt="Image of ${name}" class="user__image">
     <h2 class="user__name">${name}</h2>
-    <a class="user__email" href="mailto:">${email}</a>
+    <a class="user__email" href="mailto:${email}">${email}</a>
   </li>
   `;
 }
@@ -67,13 +67,33 @@ const fetchUsers = async (gender = 'female') => {
   return [];
 }
 
+/**
+ * 
+ * @returns 
+ */
+const handleButtonClick = async (event) => {
+  const button = event.currentTarget;
+  // bail if the button is already disabled
+  if(button.hasAttribute('aria-disabled')) {
+    return;
+  }
+
+  button.setAttribute('aria-disabled', true);
+  button.classList.add('disabled');
+
+  const users = await fetchUsers(button.dataset.gender);
+  const listContainer = document.querySelector('[data-users-list]');
+  listContainer.innerHTML = users.map( user => templateUser(user)).join('');
+
+  button.removeAttribute('aria-disabled');
+  button.classList.remove('disabled');
+
+  return;
+};
+
 // LIsten for events on all the buttons
 const buttons = document.querySelectorAll('[data-get-users]');
 
 Array.from(buttons).forEach((genButton) => {
-  genButton.addEventListener('click', async () => {
-    const users = await fetchUsers(genButton.dataset.gender);
-    const listContainer = document.querySelector('[data-users-list]');
-    listContainer.innerHTML = users.map( user => templateUser(user));
-  })
+  genButton.addEventListener('click', handleButtonClick)
 });
