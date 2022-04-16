@@ -1,0 +1,14 @@
+{
+  "name": "aac-code-challenge",
+  "version": "0.0.0",
+  "description": "A code challenge for AAC",
+  "main": "index.js",
+  "author": "dimstar <kylermagee@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon ./server.js"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
