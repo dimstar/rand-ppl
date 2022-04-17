@@ -68,26 +68,30 @@ const fetchUsers = async (gender = 'female') => {
 }
 
 /**
- * 
+ * Handle function for buttons. 
  * @returns 
  */
-const handleButtonClick = async (event) => {
+const handleGetUsers = async (event) => {
   const button = event.currentTarget;
   // bail if the button is already disabled
   if(button.hasAttribute('aria-disabled')) {
     return;
   }
 
+  // Disable the button during server actions
   button.setAttribute('aria-disabled', true);
   button.classList.add('disabled');
 
+  // Get the users and add them into the list container
   const users = await fetchUsers(button.dataset.gender);
   const listContainer = document.querySelector('[data-users-list]');
   listContainer.innerHTML = users.map( user => templateUser(user)).join('');
 
+  // Enable the button
   button.removeAttribute('aria-disabled');
   button.classList.remove('disabled');
 
+  // If we have results and selection note still appears, remove it
   const selectionNote = document.querySelector('[data-clear-on-results]');
   if(users.length > 0 && selectionNote) {
     selectionNote.remove();
@@ -96,9 +100,9 @@ const handleButtonClick = async (event) => {
   return;
 };
 
-// LIsten for events on all the buttons
+// Listen for events on all the buttons
 const buttons = document.querySelectorAll('[data-get-users]');
 
 Array.from(buttons).forEach((genButton) => {
-  genButton.addEventListener('click', handleButtonClick)
+  genButton.addEventListener('click', handleGetUsers)
 });
