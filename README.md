@@ -18,3 +18,5 @@ First you'll need to clone this repository to your local machine. Then complete 
 ~$ yarn start
 
 ```
+
+The server should be running, follow [this link](http://localhost:3001/) to see the project running in the browser.
