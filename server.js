@@ -12,6 +12,8 @@ const getContentType = (resource) => {
   const ext = resource.split('.')[1];
   
   switch(ext) {
+    case 'ico':
+      return 'image/x-icon';
     case 'js':
       return 'text/javascript';
     case 'css':
@@ -70,4 +72,8 @@ const server = http.createServer((req, res) => {
   router(req, res);
 });
 
-server.listen(process.env.PORT || 3000);
+server.listen(process.env.PORT || 3001, () => {
+  console.log(
+    `Now listening on port ${process.env.PORT}. Visit http://localhost:3001/`
+  );
+});
