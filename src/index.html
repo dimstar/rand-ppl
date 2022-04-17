@@ -8,17 +8,24 @@
   <link rel="stylesheet" href="/assets/normailze.css">
   <link rel="stylesheet" href="/assets/styles.css">
 </head>
-<body>
-  <h1 class="h1">WELCOME TO RANDOM PEOPLE</h1>
+<body class="layout">
+  <header class="header">
+    <h1 class="h1">WELCOME TO RANDOM PEOPLE</h1>
+  </header>
 
-  <div class="buttons">
-    <button class="btn" data-get-users data-gender="female">Female</button>
-    <button class="btn" data-get-users data-gender="male">Male</button>
-  </div>
-  <h2 class="h2" data-clear-on-results>Please Select a Gender</h2>
+  <main class="main">
+    <div class="buttons">
+      <button class="btn" data-get-users data-gender="female">Female</button>
+      <button class="btn" data-get-users data-gender="male">Male</button>
+    </div>
+  
+    <ul class="users" data-users-list>
+    </ul>
+  </main>
 
-  <ul class="users" data-users-list>
-  </ul>
+  <footer class="footer">
+    <h2 class="h2" data-clear-on-results>Please Select a Gender</h2>
+  </footer>
 
   <script src="/assets/app.js"></script>
 </body>
