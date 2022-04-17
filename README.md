@@ -1,4 +1,4 @@
-# Welcome to my AAC Code Challenge
+# Welcome to a Code Challenge
 
 This project was created in response to a code challenge I recieved. Please keep reading to understand how to run the project locally!
 
